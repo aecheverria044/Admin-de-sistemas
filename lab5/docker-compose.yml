@@ -1,0 +1,19 @@
+version: '3'
+
+networks:
+   network1:
+
+services:
+   webjs:
+     image: 'httpd:latest'
+     ports:
+      - "80:80"
+     networks:
+      - network1
+
+   bbdd:
+    image: "redis:alpine"
+    networks:
+     network1:
+      aliases:
+       - database
